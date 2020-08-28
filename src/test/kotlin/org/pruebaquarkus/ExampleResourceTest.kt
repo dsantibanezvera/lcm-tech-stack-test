@@ -9,7 +9,6 @@ import org.junit.jupiter.api.Test
 @QuarkusTest
 class ExampleResourceTest {
 
-    @Disabled
     @Test
     fun testHelloEndpoint() {
         given()

@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: oracle/graalvm-ce:latest
+      - image: docker.pkg.github.com/graalvm/container/community:latest
     environment:
       GRADLE_OPTS: -Dorg.gradle.daemon=false
       JVM_OPTS: -Xmx3200m
