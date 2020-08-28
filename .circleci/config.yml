@@ -15,7 +15,7 @@ jobs:
       - run:
           name: native-image
           command: |
-            ./gradlew build -Dquarkus.package.type=native --info
+            ./gradlew build -Dquarkus.package.type=native --debug
       - run:
           name: print-test-report
           command: |
