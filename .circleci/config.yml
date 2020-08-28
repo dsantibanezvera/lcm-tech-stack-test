@@ -1,21 +1,60 @@
 version: 2.1
 jobs:
-  build:
+  hello-world:
+    docker:
+      - image: circleci/openjdk:jdk
+    steps:
+      - run:
+          name: The First Step
+          command: |
+            echo 'Hello World!'
+      - run:
+          name: The Second Step
+          command: |
+            echo 'This is the delivery pipeline second step'
+  get-code-from-repo:
     docker:
       - image: circleci/openjdk:jdk
     steps:
       - checkout
       - run:
-          name: The First Step
-          command: |
-            echo 'Hello World!'
-            echo 'This is the delivery pipeline'
-      - run:
           name: Code has arrived
           command: |
             ls -al
             echo '^^^That should look familiar^^^'
+  check-java-docker:
+    docker:
+      - image: circleci/openjdk:jdk
+    steps:
       - run:
           name: Running in a Unique Container
           command: |
             java -version
+  promotion-to-prod-env-checked:
+    docker:
+      - image: circleci/openjdk:jdk
+    steps:
+      - run:
+          name: Running in a Unique Container
+          command: |
+            echo 'Artifacts promoted to prod environment'
+
+workflows:
+  version: 2
+  Example_Workflow:
+    jobs:
+      - hello-world
+      - get-code-from-repo:
+          requires:
+            - hello-world
+      - check-java-docker:
+          requires:
+            - Hello-World
+      - hold-for-approval:
+          type: approval
+          requires:
+            - get-code-from-repo
+            - check-java-docker
+      - promotion-to-prod-env-checked:
+          requires:
+            - hold-for-approval
