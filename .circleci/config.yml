@@ -49,7 +49,7 @@ workflows:
             - hello-world
       - check-java-docker:
           requires:
-            - Hello-World
+            - hello-world
       - hold-for-approval:
           type: approval
           requires:
