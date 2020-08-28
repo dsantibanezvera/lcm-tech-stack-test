@@ -15,7 +15,7 @@ jobs:
       - run:
           name: native-image
           command: |
-            ./gradlew build -Dquarkus.package.type=native
+            ./gradlew build -Dquarkus.package.type=native --stacktrace
       - save_cache:
           paths:
             - ~/.gradle
