@@ -15,9 +15,9 @@ jobs:
       - run:
           name: native-image
           command: |
-            ./gradlew build -Dquarkus.package.type=native --stacktrace
+            ./gradlew build -Dquarkus.package.type=native --info
       - run:
-          name: print test report
+          name: print-test-report
           command: |
             cat /root/project/build/reports/tests/test/index.html
       - save_cache:
