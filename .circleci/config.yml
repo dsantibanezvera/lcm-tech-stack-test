@@ -1,7 +1,7 @@
 #
 # Native Quarkus CircleCI configuration file
 #
-version: 2
+version: 2.1
 jobs:
   build:
     # Use "machine" instead of e.g. "docker" for better/faster results
