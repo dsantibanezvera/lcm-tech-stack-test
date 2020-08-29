@@ -2,6 +2,8 @@
 # Native Quarkus CircleCI configuration file
 #
 version: 2.1
+orbs:
+  openjdk-install: cloudesire/openjdk-install@1.2.3
 jobs:
   build:
     # Use "machine" instead of e.g. "docker" for better/faster results
@@ -10,12 +12,14 @@ jobs:
     resource_class: medium
     working_directory: ~/repo
     environment:
-      GRADLE_OPTS: -Dorg.gradle.daemon=true
+      GRADLE_OPTS: -Dorg.gradle.daemon=false
       JVM_OPTS: -Xmx3200m
       TERM: dumb
       # Set the GRAALVM_HOME env variable to the location where we will be installing GraalVM
       GRAALVM_HOME: /home/circleci/repo/.graalvm
     steps:
+      - openjdk-install/openjdk
+        version: "11"
       # Checkout the source code
       # ########################
       - checkout
