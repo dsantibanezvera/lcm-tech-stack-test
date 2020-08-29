@@ -10,7 +10,7 @@ jobs:
     resource_class: medium
     working_directory: ~/repo
     environment:
-      GRADLE_OPTS: -Dorg.gradle.daemon=false
+      GRADLE_OPTS: -Dorg.gradle.daemon=true
       JVM_OPTS: -Xmx3200m
       TERM: dumb
       # Set the GRAALVM_HOME env variable to the location where we will be installing GraalVM
