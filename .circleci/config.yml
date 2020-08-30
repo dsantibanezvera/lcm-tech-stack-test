@@ -4,6 +4,8 @@
 version: 2.1
 orbs:
   openjdk-install: cloudesire/openjdk-install@1.2.3
+  parameters:
+    version: 11
 jobs:
   build:
     # Use "machine" instead of e.g. "docker" for better/faster results
@@ -19,7 +21,6 @@ jobs:
       GRAALVM_HOME: /home/circleci/repo/.graalvm
     steps:
       - openjdk-install/openjdk
-        version: "11"
       # Checkout the source code
       # ########################
       - checkout
