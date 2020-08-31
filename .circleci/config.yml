@@ -18,12 +18,12 @@ jobs:
       # Set the GRAALVM_HOME env variable to the location where we will be installing GraalVM
       GRAALVM_HOME: /home/circleci/repo/.graalvm
     steps:
-      - openjdk-install/openjdk:
-          version: 11
-
       # Checkout the source code
       # ########################
       - checkout
+
+      - openjdk-install/openjdk:
+          version: 11
 
       # Restore any files we may have cached
       # ########################
