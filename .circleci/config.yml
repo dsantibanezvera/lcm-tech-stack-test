@@ -57,4 +57,6 @@ jobs:
           no_output_timeout: 30m
       - store_artifacts:
           path: build/prueba-quarkus-1.0.0-SNAPSHOT-runner
+      - store_artifacts:
+          path: prueba-quarkus-1.0.0-SNAPSHOT-native-image-source-jar
 
