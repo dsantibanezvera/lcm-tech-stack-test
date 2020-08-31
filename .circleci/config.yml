@@ -35,10 +35,6 @@ jobs:
           paths:
             - ~/.gradle
           key: gradle-dependencies-native
-      - store_artifacts:
-          path: build/libs
-      - store_artifacts:
-          path: build/graal
 
       # Install GraalVM and native-image, needed for a native Quarkus build
       # ########################
